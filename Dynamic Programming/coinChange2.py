@@ -4,7 +4,7 @@ def minCoins(coins, target):
 
     for i in range(1, target+1):
         for coin in coins:
-            if (i-coin >= 0 or changes[i-coin] != float("inf")):
+            if (i-coin >= 0 and changes[i-coin] != float("inf")):
                 changes[i] = min(changes[i], changes[i-coin] + 1)
 
     return -1 if changes[target] == float("inf") else changes[target]
